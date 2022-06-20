@@ -23,7 +23,14 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus quae commodi blanditiis laborum excepturi quisquam
+          atque modi nemo mollitia omnis, amet voluptatem quibusdam, eveniet qui
+          eos accusantium repudiandae, cumque dolorum?
+        </p>
+      </Book>
       <Book
         img={secondBook.img}
         title={secondBook.title}
@@ -33,16 +40,17 @@ function BookList() {
   )
 }
 
-const Book = ({ img, title, author }) => {
+const Book = (props) => {
   // Object destructuring!
   // Either destructur in the body of the function or in the parameter directly!
-  // const { img, title, author } = props
+  const { img, title, author } = props
 
   return (
     <article className='book'>
       <img src={img} alt='' />
       <h1>{title}</h1>
       <h4>{author}</h4>
+      {props.children}
     </article>
   )
 }
