@@ -1,3 +1,5 @@
+'use strict'
+
 import React from 'react'
 import ReactDom from 'react-dom'
 
@@ -12,19 +14,20 @@ import ReactDom from 'react-dom'
 // close every element
 // formatting
 
+// Nested Components, React Tools
+
 function Greeting() {
   return (
     <div>
-      <h3>hello people</h3>
-      <ul>
-        <li>
-          <a href='#'>hello world</a>
-        </li>
-        <img src='' alt='' />
-        <input type='text' name='' id='' />
-      </ul>
+      <Person />
+      <Message />
     </div>
   )
+}
+
+const Person = () => <h2>marc gaetcke</h2>
+const Message = () => {
+  return <p>this is my message</p>
 }
 
 // function Greeting() {
