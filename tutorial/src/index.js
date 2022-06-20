@@ -16,32 +16,48 @@ import ReactDom from 'react-dom'
 
 // Nested Components, React Tools
 
-function Greeting() {
+function BookList() {
   return (
-    <div>
-      <Person />
-      <Message />
-    </div>
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
   )
 }
 
-const Person = () => <h2>marc gaetcke</h2>
-const Message = () => {
-  return <p>this is my message</p>
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  )
 }
 
-// function Greeting() {
-//   return <h4>hello world</h4>
-// }
+const Image = () => {
+  return (
+    <img
+      src='https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSPtxH9mRAD-2H6LxkUIH-sfzPmnMjgl6XSJ7mnWMl4lcJXSZEXjeD3SWY5Gla_3kycT52L3b1_w4DA0TEeo3DBocU7ekit8xlDXwK6F4Z7&usqp=CAE'
+      alt=''
+    />
+  )
+}
 
-// const Greeting = () => {
-//   return React.createElement(
-//     'div',
-//     {},
-//     React.createElement('h1', {}, 'hello world')
-//   )
-// }
+const Title = () => {
+  return <h1>I love you to the Moon and Back</h1>
+}
 
-export default Greeting
+const Author = () => {
+  return <h4>Amelia Hepworth</h4>
+}
 
-ReactDom.render(<Greeting />, document.getElementById('root'))
+export default BookList
+
+ReactDom.render(<BookList />, document.getElementById('root'))
