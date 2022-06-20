@@ -4,28 +4,43 @@ import ReactDom from 'react-dom'
 // CSS
 import './index.css'
 
+// setup vars
+const firstBook = {
+  img: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSPtxH9mRAD-2H6LxkUIH-sfzPmnMjgl6XSJ7mnWMl4lcJXSZEXjeD3SWY5Gla_3kycT52L3b1_w4DA0TEeo3DBocU7ekit8xlDXwK6F4Z7&usqp=CAE',
+  title: 'I love you to the Moon and Back',
+  author: 'Amelia Hepworth',
+}
+const secondBook = {
+  img: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRzqRfvu42P8Wm_ZJhTupc9VOH1foYuAbY_dmw26_zWoDH_Qrwo3X-abfFKH35OsvR5cX6grcI7ad0_qjOt7sSIhfeagAvFElVgqJNm8oR1wT0x0OiLoUDYgg&usqp=CAE',
+  title: 'Our Class is a Family',
+  author: 'Shannon Olsen',
+}
+
 function BookList() {
   return (
     <section className='booklist'>
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   )
 }
 
-const author = 'Amelia Hepworth'
-const Book = () => {
-  const title = 'I love you to the Moon and Back'
+const Book = (props) => {
+  console.log('props: ', props)
 
   return (
     <article className='book'>
-      <img
-        src='https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSPtxH9mRAD-2H6LxkUIH-sfzPmnMjgl6XSJ7mnWMl4lcJXSZEXjeD3SWY5Gla_3kycT52L3b1_w4DA0TEeo3DBocU7ekit8xlDXwK6F4Z7&usqp=CAE'
-        alt=''
-      />
-      <h1>{title}</h1>
-      <h4>{author.toUpperCase()}</h4>
-      {/* <p>{let x = 6}</p> */}
-      <p>{6 + 6}</p>
+      <img src={props.img} alt='' />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   )
 }
