@@ -1,24 +1,12 @@
-'use strict'
-
 import React from 'react'
 import ReactDom from 'react-dom'
 
-// stateless functional component (dumb component)
-// always return JSX
-
-// JSX Rules
-// return single element
-// div / section / article or Fragment
-// use camelCase for html attribute
-// className instead of class
-// close every element
-// formatting
-
-// Nested Components, React Tools
+// CSS
+import './index.css'
 
 function BookList() {
   return (
-    <section>
+    <section className='booklist'>
       <Book />
       <Book />
       <Book />
@@ -33,7 +21,7 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
+    <article className='book'>
       <Image />
       <Title />
       <Author />
