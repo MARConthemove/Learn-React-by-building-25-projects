@@ -20,7 +20,7 @@ const books = [
   },
   {
     id: 3,
-    img: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTl0ua5w4QkRhlKNtjHwG7tFbKqeytIbxuXfZAixe64gqwsIInIZCbFAvHVV0iW-tamPukPmF--ra7OgSuGgt2lihBfZZeX13UyN3kXPwa_2Tp2XEY8mclK&usqp=CAE',
+    img: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT8GlHOsKcPyPdGaQD_2scaWX0vB5zQ-HMlPIh9vCNfi4XFNLLjOzRg9rj2ZTxgP4Ns93kpL-6k693y1kEwU0QeEmQJZ22e5Ll7UG8ql4nZkUUPs-OSUUTC&usqp=CAE',
     title: 'Feeling is the secret',
     author: 'Neville Godd',
   },
