@@ -30,17 +30,16 @@ function BookList() {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book key={book.id} book={book}></Book>
+        return <Book key={book.id} {...book}></Book>
       })}
     </section>
   )
 }
 
-const Book = (props) => {
-  console.log(props)
+const Book = ({ img, title, author }) => {
   // Object destructuring!
   // Either destructur in the body of the function or in the parameter directly!
-  const { img, title, author } = props.book
+  // const { img, title, author } = props
 
   return (
     <article className='book'>
