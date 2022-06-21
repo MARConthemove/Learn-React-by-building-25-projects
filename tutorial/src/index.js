@@ -37,15 +37,35 @@ function BookList() {
 }
 
 const Book = ({ img, title, author }) => {
-  // Object destructuring!
-  // Either destructur in the body of the function or in the parameter directly!
-  // const { img, title, author } = props
+  // attribute, eventHandler
+  // onClick, onMouseOver
+
+  const clickHandler = (event) => {
+    console.log(event)
+    console.log(event.target)
+
+    alert('Hello World')
+  }
+  const complexExample = (bla) => {
+    console.log(bla)
+  }
 
   return (
-    <article className='book'>
+    <article
+      className='book'
+      onMouseOver={() => {
+        console.log(title)
+      }}
+    >
       <img src={img} alt='' />
-      <h1>{title}</h1>
+      <h1 onClick={() => console.log(title)}>{title}</h1>
       <h4>{author}</h4>
+      <button type='button' onClick={clickHandler}>
+        reference example
+      </button>
+      <button type='button' onClick={() => complexExample(author)}>
+        more complex example
+      </button>
     </article>
   )
 }
