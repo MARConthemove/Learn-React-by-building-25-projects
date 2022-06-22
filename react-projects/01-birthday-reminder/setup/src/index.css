@@ -154,13 +154,20 @@ main {
   text-transform: none;
   margin-bottom: 2rem;
 }
+
 .person {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 0.75rem;
   margin-bottom: 1.5rem;
   align-items: center;
+  transition: all 0.8s ease-in-out;
 }
+
+.person:hover {
+  transform: scale(1.03);
+}
+
 .person img {
   width: 75px;
   height: 75px;
