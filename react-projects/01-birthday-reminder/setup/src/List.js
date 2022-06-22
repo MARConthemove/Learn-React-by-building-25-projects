@@ -1,18 +1,24 @@
 import React from 'react'
 
-const List = (props) => {
-  // console.log('props: ', props)
-  const { image, name, age } = props
+const List = ({ people }) => {
+  console.log('{people}: ', people)
+  // const { people } = props
 
   return (
     <React.Fragment>
-      <article className='person'>
-        <img src={image} alt='user_picture' />
-        <div>
-          <h4>{name}</h4>
-          <p>{age} years</p>
-        </div>
-      </article>
+      {people.map((person) => {
+        const { id, name, age, image } = person
+
+        return (
+          <article key={id} className='person'>
+            <img src={image} alt={name} />
+            <div>
+              <h4>{name}</h4>
+              <p>{age} years</p>
+            </div>
+          </article>
+        )
+      })}
     </React.Fragment>
   )
 }
