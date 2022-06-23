@@ -9,10 +9,14 @@ const UseEffectBasics = () => {
   // calls useEffect everytime the component rerenders
   useEffect(() => {
     console.log('call useEffect')
-    if (value > 5) {
+    if (value >= 1) {
       document.title = `New(${value})`
     }
-  })
+  }, [value])
+
+  useEffect(() => {
+    console.log('+++HELLO WORLD+++')
+  }, [])
 
   console.log('render component')
 
