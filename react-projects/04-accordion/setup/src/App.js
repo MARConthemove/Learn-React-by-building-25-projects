@@ -3,16 +3,19 @@ import data from './data'
 import SingleQuestion from './Question'
 
 function App() {
-  console.log(data)
+  const [questions, setQuestions] = useState(data)
+
   return (
-    <div className='container'>
-      <h3>FAQs</h3>
-      <section className='info'>
-        {data.map((person) => {
-          return <SingleQuestion {...person} key={person.id} />
-        })}
-      </section>
-    </div>
+    <main>
+      <div className='container'>
+        <h3>questions and answers about login</h3>
+        <section className='info'>
+          {questions.map((question) => {
+            return <SingleQuestion {...question} key={question.id} />
+          })}
+        </section>
+      </div>
+    </main>
   )
 }
 
