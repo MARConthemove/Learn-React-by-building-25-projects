@@ -13,10 +13,19 @@ const getLocalStorage = () => {
 }
 
 function App() {
+  // Eingabefeld state
   const [name, setName] = useState('')
+
+  // Liste, Storage
   const [list, setList] = useState(getLocalStorage())
+
+  // Editiermodus An / Aus
   const [isEditing, setIsEditing] = useState(false)
+
+  // Id des editierten Items
   const [editID, setEditID] = useState(null)
+
+  // Alert Message
   const [alert, setAlert] = useState({
     show: false,
     msg: '',
