@@ -12,6 +12,10 @@ function App() {
     e.preventDefault()
 
     if (amount) {
+      const newParagraphs = paragraphs.slice(0, amount)
+
+      setDisplayed(newParagraphs)
+      setAmount('')
     }
   }
 
@@ -29,13 +33,11 @@ function App() {
         />
         <button className='btn'>generate</button>
       </form>
-      {paragraphs.map((paragraph) => {
-        return (
-          <article className='lorem-text'>
-            <p>{paragraph}</p>
-          </article>
-        )
-      })}
+      <article className='lorem-text'>
+        {displayed.map((paragraph, index) => {
+          return <p key={index}>{paragraph}</p>
+        })}
+      </article>
     </section>
   )
 }
