@@ -8,12 +8,18 @@ import React, { useState } from 'react'
 
 const ControlledInputs = () => {
   const [person, setPerson] = useState({ firstName: '', email: '', age: '' })
-
   const [people, setPeople] = useState([])
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    // dynamic object keys
+    setPerson({ ...person, [name]: value })
+  }
 
-  const handleSubmit = () => {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <React.Fragment>
