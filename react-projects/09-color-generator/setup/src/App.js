@@ -6,14 +6,15 @@ import Values from 'values.js'
 function App() {
   const [color, setColor] = useState('')
   const [error, setError] = useState(false)
-  const [list, setList] = useState([])
+  const [list, setList] = useState(new Values('#f15025').all(5))
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     try {
-      let colors = new Values(color).all(10)
+      let colors = new Values(color).all(5)
       setList(colors)
+      setError(false)
     } catch (error) {
       setError(true)
       console.log(error)
@@ -40,8 +41,14 @@ function App() {
 
       <section className='colors'>
         {list.map((color, index) => {
-          console.log(color)
-          return <SingleColor key={index} {...color} index={index} />
+          return (
+            <SingleColor
+              key={index}
+              {...color}
+              index={index} // index needed to change color font from index 0
+              hexColor={color.hex}
+            />
+          )
         })}
       </section>
     </React.Fragment>
