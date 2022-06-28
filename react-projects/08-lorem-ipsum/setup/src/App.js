@@ -2,40 +2,43 @@ import React, { useState } from 'react'
 import data from './data'
 
 function App() {
-  const [paragraphs, setParagraphs] = useState(data)
-  const [amount, setAmount] = useState('')
-  const [displayed, setDisplayed] = useState([])
-
-  console.log(paragraphs)
+  const [count, setCount] = useState(0)
+  const [text, setText] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (amount) {
-      const newParagraphs = paragraphs.slice(0, amount)
-
-      setDisplayed(newParagraphs)
-      setAmount('')
+    let amount = parseInt(count, 10)
+    if (count <= 0) {
+      amount = 1
     }
+    if (count > data.length) {
+      amount = 8
+    }
+    setText(data.slice(0, amount))
   }
 
   return (
     <section className='section-center'>
       <h3>tired of boring lorem ipsum?</h3>
-      <form action='' className='lorem-form' onSubmit={handleSubmit}>
+      {/* form: */}
+      <form className='lorem-form' onSubmit={handleSubmit}>
         <label htmlFor='amount'>paragraphs:</label>
         <input
           type='number'
           id='amount'
           name='amount'
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          value={count}
+          onChange={(e) => setCount(e.target.value)}
         />
-        <button className='btn'>generate</button>
+        <button className='btn' type='submit'>
+          generate
+        </button>
       </form>
+
       <article className='lorem-text'>
-        {displayed.map((paragraph, index) => {
-          return <p key={index}>{paragraph}</p>
+        {text.map((item, index) => {
+          return <p key={index}>{item}</p>
         })}
       </article>
     </section>
