@@ -1,12 +1,18 @@
+// import::react
 import React from 'react'
+
+// import::components
 import Modal from './Modal'
 import Sidebar from './Sidebar'
 import Home from './Home'
+
 function App() {
   return (
-    <>
-      <h2>modal-sidebar project setup</h2>
-    </>
+    <React.Fragment>
+      <Home />
+      <Modal />
+      <Sidebar />
+    </React.Fragment>
   )
 }
 
