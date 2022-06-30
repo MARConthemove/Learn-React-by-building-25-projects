@@ -384,8 +384,8 @@ Stripe Styles
   z-index: 3;
   display: none;
   padding: 2rem;
-  border-radius: var(--radius);
-  transition: var(--transition);
+  border-radius: 2rem;
+  transition: all 0.5s ease-in-out;
 }
 .submenu::before {
   content: '';
