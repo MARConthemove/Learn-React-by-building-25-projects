@@ -5,10 +5,26 @@ import phoneImg from './images/phone.svg'
 import { useGlobalContext } from './context'
 
 const Hero = () => {
-  const context = useGlobalContext()
-  console.log('context: ', context)
+  const { closeSubmenu } = useGlobalContext()
 
-  return <h2>hero component</h2>
+  return (
+    <section className='hero'>
+      <div className='hero-center'>
+        <article className='hero-info'>
+          <h1>portfolio about myself::</h1>
+          <p>
+            just another coder. recently changed career to fullstack web
+            development.
+          </p>
+
+          <button className='btn'>Start exploring now</button>
+        </article>
+        <article className='hero-images'>
+          <img src={phoneImg} alt='phone' className='phone-img' />
+        </article>
+      </div>
+    </section>
+  )
 }
 
 export default Hero
