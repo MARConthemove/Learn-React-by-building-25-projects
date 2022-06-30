@@ -1,5 +1,5 @@
 /*
-=============== 
+===============
 Variables
 ===============
 */
@@ -45,7 +45,7 @@ Variables
   --fixed-width: 620px;
 }
 /*
-=============== 
+===============
 Global Styles
 ===============
 */
@@ -135,7 +135,7 @@ p {
 }
 
 /*
-=============== 
+===============
 Stripe Styles
 ===============
 */
@@ -251,6 +251,8 @@ Stripe Styles
     text-transform: capitalize;
     letter-spacing: 1px;
     width: 10rem;
+    /* later remove */
+    cursor: pointer;
   }
 }
 
