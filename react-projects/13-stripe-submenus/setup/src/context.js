@@ -4,9 +4,31 @@ import sublinks from './data'
 // contextAPI =>
 const AppContext = React.createContext()
 
-const AppProvider = ({ children }) => {
+// AppProvider =>
+export const AppProvider = ({ children }) => {
+  // state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(true)
+
+  // functions
+  const openSidebar = () => setIsSidebarOpen(true)
+  const closeSidebar = () => setIsSidebarOpen(false)
+
+  const openSubmenu = () => setIsSubmenuOpen(true)
+  const closeSubmenu = () => setIsSubmenuOpen(false)
   return (
-    <AppContext.Provider value='hello world'>{children}</AppContext.Provider>
+    <AppContext.Provider
+      value={{
+        isSidebarOpen,
+        isSubmenuOpen,
+        openSidebar,
+        closeSidebar,
+        openSubmenu,
+        closeSubmenu,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
   )
 }
 
@@ -15,4 +37,4 @@ export const useGlobalContext = () => {
   return useContext(AppContext)
 }
 
-export { AppContext, AppProvider }
+// export { AppContext, AppProvider }
