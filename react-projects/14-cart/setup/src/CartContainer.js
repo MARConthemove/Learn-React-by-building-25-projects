@@ -3,8 +3,8 @@ import CartItem from './CartItem'
 import { useGlobalContext } from './context'
 
 const CartContainer = () => {
-  const { cart } = useGlobalContext()
-  if (cart.length === 0) {
+  const { state.cart } = useGlobalContext()
+  if (state.cart.length === 0) {
     return (
       <section className='cart'>
         {/* cart header */}

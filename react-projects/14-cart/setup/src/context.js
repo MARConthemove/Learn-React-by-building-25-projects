@@ -8,20 +8,29 @@ const url = 'https://course-api.com/react-useReducer-cart-project'
 
 const AppContext = React.createContext()
 
+// default reducer state
+const initialState = {
+  loading: false,
+  cart: cartItems,
+  total: 0,
+  amount: 0,
+}
+
+// appProvider (returns context.provider)
 const AppProvider = ({ children }) => {
-  const [cart, setCart] = useState(cartItems)
+  const [state, dispatch] = useReducer(initialState)
 
   return (
     <AppContext.Provider
       value={{
-        cart,
+        state,
       }}
     >
       {children}
     </AppContext.Provider>
   )
 }
-// make sure use
+// customHook: make sure use
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }

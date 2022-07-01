@@ -1,5 +1,5 @@
 /*
-=============== 
+===============
 Variables
 ===============
 */
@@ -110,7 +110,7 @@ p {
 }
 
 /*
-=============== 
+===============
 Navbar
 ===============
 */
@@ -119,8 +119,9 @@ Navbar
   margin-top: 5rem;
 }
 nav {
-  background: var(--clr-primary);
+  background: #37e2d5;
   padding: 1.25rem 2rem;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 .nav-center {
   max-width: var(--fixed-width);
@@ -149,7 +150,7 @@ nav svg {
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  background: var(--clr-primary-light);
+  background: #fbcb0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,7 +161,7 @@ nav svg {
   font-size: 1.25rem;
 }
 /*
-=============== 
+===============
 Cart
 ===============
 */
@@ -207,7 +208,7 @@ Cart
   border-color: var(--clr-red-light);
 }
 /*
-=============== 
+===============
 Cart Item
 ===============
 */
