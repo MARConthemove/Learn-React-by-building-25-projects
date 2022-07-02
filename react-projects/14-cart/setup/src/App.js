@@ -12,7 +12,8 @@ function App() {
   if (loading) {
     return (
       <div className='loading'>
-        <h1>Loading...</h1>
+        <h2>Loading data from API...</h2>
+        <div className='loader'></div>
       </div>
     )
   }

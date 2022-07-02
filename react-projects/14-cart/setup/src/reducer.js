@@ -42,9 +42,11 @@ const reducer = (state, action) => {
         const { price, amount } = cartItem
         const itemTotal = amount * price
 
+        // creating values
         cartTotal.amount += amount
         cartTotal.total += itemTotal
 
+        // return cartTotal object
         console.log('typeof cartTotal: ', cartTotal)
         return cartTotal
       },

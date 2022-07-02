@@ -49,7 +49,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'LOADING' })
     setTimeout(() => {
       fetchData()
-    }, 1000)
+    }, 3000)
   }, [])
 
   useEffect(() => {
@@ -64,7 +64,6 @@ const AppProvider = ({ children }) => {
         deleteItem,
         increaseAmount,
         decreaseAmount,
-        fetchData,
       }}
     >
       {children}
