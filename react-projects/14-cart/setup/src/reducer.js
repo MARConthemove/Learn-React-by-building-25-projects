@@ -37,12 +37,9 @@ const reducer = (state, action) => {
   }
 
   if (action.type === 'GET_TOTALS') {
-    const { total, amount } = state.cart.reduce((cartTotal, cartItem) => {}, {
-      total: 0,
-      amount: 0,
-    })
-    return { ...state, total, amount }
   }
+
+  // default return of state if no dispatch function is called
   return state
 }
 
