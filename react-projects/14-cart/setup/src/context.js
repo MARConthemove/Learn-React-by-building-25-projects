@@ -12,7 +12,7 @@ const AppContext = React.createContext()
 // aka "state"
 const initialState = {
   loading: false,
-  cart: cartItems,
+  cart: [],
   total: 0,
   amount: 0,
 }
@@ -34,6 +34,24 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'DECREASE_AMOUNT', payload: id })
   }
 
+  const fetchData = async () => {
+    dispatch({ type: 'LOADING' })
+    try {
+      const response = await fetch(url)
+      const cart = await response.json()
+      dispatch({ type: 'DISPLAY_ITEMS', payload: cart })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    dispatch({ type: 'LOADING' })
+    setTimeout(() => {
+      fetchData()
+    }, 1000)
+  }, [])
+
   useEffect(() => {
     dispatch({ type: 'GET_TOTALS' })
   }, [state.cart])
@@ -46,6 +64,7 @@ const AppProvider = ({ children }) => {
         deleteItem,
         increaseAmount,
         decreaseAmount,
+        fetchData,
       }}
     >
       {children}
