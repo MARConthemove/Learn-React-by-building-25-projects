@@ -45,6 +45,10 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  const toggleAmount = (id, type) => {
+    dispatch({ type: 'TOGGLE_AMOUNT', payload: { id, type } })
+  }
+
   useEffect(() => {
     dispatch({ type: 'LOADING' })
     setTimeout(() => {
@@ -64,6 +68,7 @@ const AppProvider = ({ children }) => {
         deleteItem,
         increaseAmount,
         decreaseAmount,
+        toggleAmount,
       }}
     >
       {children}
