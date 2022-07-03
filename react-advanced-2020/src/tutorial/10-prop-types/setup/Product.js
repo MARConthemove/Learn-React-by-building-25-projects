@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import defaultImage from '../../../assets/default-image.jpeg'
 
 const Product = ({ name, image, price }) => {
+  // only if image is there, get image.url (object)
   const url = image && image.url
   console.log(name, image, price)
   return (
     <article className='product'>
       <h4>{name}</h4>
       <p>${price || 3.99}</p>
-      <img src={url || defaultImage} alt={name} />
+      {/* if url is undefined, then show default image */}
+      <img src={url || defaultImage} alt={name || 'default name'} />
     </article>
   )
 }
