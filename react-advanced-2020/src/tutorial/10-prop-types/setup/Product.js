@@ -1,7 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-const Product = () => {
-  return <article className='product'>single product</article>;
-};
+const Product = ({ name, image, price }) => {
+  return (
+    <article className='product'>
+      <h4>{name}</h4>
+      <p>${price}</p>
+      <img src={image.url} alt={name} />
+    </article>
+  )
+}
 
-export default Product;
+export default Product
