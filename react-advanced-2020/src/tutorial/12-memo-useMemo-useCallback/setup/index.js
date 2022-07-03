@@ -10,7 +10,7 @@ const url = 'https://course-api.com/javascript-store-products'
 const Index = () => {
   const { products } = useFetch(url)
   const [count, setCount] = useState(0)
-
+  // console.log('products:', products)
   return (
     <>
       <h1>Count : {count}</h1>
@@ -22,7 +22,14 @@ const Index = () => {
   )
 }
 
-const BigList = ({ products }) => {
+// React.memo (memo Function) is checking if "products" changes, and if not it will not rerender if any other
+// part of the application triggers a rerender like useState changes.
+const BigList = React.memo(({ products }) => {
+  useEffect(() => {
+    console.log('big list called')
+  })
+
+  // console.log('products next:', products)
   return (
     <section className='products'>
       {products.map((product) => {
@@ -30,9 +37,14 @@ const BigList = ({ products }) => {
       })}
     </section>
   )
-}
+})
 
 const SingleProduct = ({ fields }) => {
+  useEffect(() => {
+    console.count('single item called')
+  })
+
+  // console.log('fields:', fields)
   let { name, price } = fields
   price = price / 100
   const image = fields.image[0].url
