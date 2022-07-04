@@ -1,15 +1,20 @@
 // Link React Router
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <section className='section'>
-      <h2>Home Page</h2>
+    <React.Fragment>
+      <Navbar />
 
-      <Link to='/about' className='btn'>
-        About
-      </Link>
-    </section>
+      <section className='section'>
+        <Outlet />
+      </section>
+
+      <Footer />
+    </React.Fragment>
   )
 }
 export default Home
