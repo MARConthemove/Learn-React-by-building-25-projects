@@ -50,6 +50,9 @@ const Index = () => {
 
 // React.memo (memo Function) is checking if "products" changes, and if not it will not rerender if any other
 // part of the application triggers a rerender like useState changes.
+
+// if a wrapped component has a useState, useReducer or useContext Hook it will still re-render
+// when state or context changes!
 const BigList = React.memo(({ products, addToCart }) => {
   useEffect(() => {
     console.log('big list called')
