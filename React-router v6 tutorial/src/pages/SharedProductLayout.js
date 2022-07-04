@@ -1,13 +1,12 @@
 // Link React Router
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import StyledNavbar from '../components/StyledNavbar'
+
+import { Outlet } from 'react-router-dom'
 
 const Home = () => {
   return (
     <React.Fragment>
-      <StyledNavbar />
+      <h2>products</h2>
       <Outlet />
     </React.Fragment>
   )
