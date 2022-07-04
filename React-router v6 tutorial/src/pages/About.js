@@ -6,7 +6,7 @@ const About = () => {
       <h2>About</h2>
 
       <Link to='/' className='btn'>
-        Home
+        back Home
       </Link>
     </section>
   )
