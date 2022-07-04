@@ -3,6 +3,7 @@ import products from '../data'
 
 const SingleProduct = () => {
   const { productId } = useParams()
+  console.log(useParams())
   const product = products.find((product) => product.id === productId)
 
   const { image, name } = product

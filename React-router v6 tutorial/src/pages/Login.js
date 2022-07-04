@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState } from 'react'
+
 const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <section className='section'>
@@ -40,6 +41,6 @@ const Login = () => {
         </button>
       </form>
     </section>
-  );
-};
-export default Login;
+  )
+}
+export default Login

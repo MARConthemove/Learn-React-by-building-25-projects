@@ -1,5 +1,6 @@
 // Import React Router:
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 // Import pages:
 import Home from './pages/Home'
@@ -8,8 +9,13 @@ import Products from './pages/Products'
 import Error from './pages/Error'
 import SharedLayout from './pages/SharedLayout'
 import SingleProduct from './pages/SingleProduct'
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
 
 function App() {
+  // state
+  const [user, setUser] = useState(null)
+
   return (
     <BrowserRouter>
       <Routes>
@@ -18,6 +24,9 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/products' element={<Products />} />
           <Route path='/products/:productId' element={<SingleProduct />} />
+          <Route path='/login' element={<Login setUser={setUser} />} />
+          <Route path='/dashboard' element={<Dashboard user={user} />} />
+
           <Route path='*' element={<Error />} />
         </Route>
       </Routes>
