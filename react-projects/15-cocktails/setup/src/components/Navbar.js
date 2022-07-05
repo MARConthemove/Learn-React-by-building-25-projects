@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../logo.svg'
+import logo2 from '../Cocktail3.svg'
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <nav className='navbar'>
         <div className='nav-center'>
           <Link to='/'>
-            <img src={logo} alt='cocktail db logo' className='logo' />
+            <img src={logo2} alt='cocktail db logo' className='logo' />
           </Link>
           <ul className='nav-links'>
             <li>
