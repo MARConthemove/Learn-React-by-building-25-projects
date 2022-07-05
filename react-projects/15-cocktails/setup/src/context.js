@@ -1,15 +1,18 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { useCallback } from 'react'
+import React, { useContext } from 'react'
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  return <AppContext.Provider value='hello'>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider value='hello world'>{children}</AppContext.Provider>
+  )
 }
-// make sure use
+
+// custom hook
 export const useGlobalContext = () => {
   return useContext(AppContext)
 }
 
+// export
 export { AppContext, AppProvider }
