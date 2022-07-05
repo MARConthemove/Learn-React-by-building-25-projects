@@ -1,11 +1,59 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('a')
+  const [cocktails, setCocktails] = useState([])
+
+  const fetchDrinks = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch(`${url}${searchTerm}`)
+      const data = await response.json()
+
+      const { drinks } = data
+
+      if (drinks) {
+        const newCocktails = drinks.map((cocktail) => {
+          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
+            cocktail
+          return {
+            id: idDrink,
+            name: strDrink,
+            img: strDrinkThumb,
+            info: strAlcoholic,
+            glass: strGlass,
+          }
+        })
+        setCocktails(newCocktails)
+      } else {
+        setCocktails([])
+      }
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
+  // fetchEffect
+  useEffect(() => {
+    fetchDrinks()
+  }, [searchTerm])
+
   return (
-    <AppContext.Provider value='hello world'>{children}</AppContext.Provider>
+    <AppContext.Provider
+      value={{
+        loading,
+        cocktails,
+        setSearchTerm,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
   )
 }
 

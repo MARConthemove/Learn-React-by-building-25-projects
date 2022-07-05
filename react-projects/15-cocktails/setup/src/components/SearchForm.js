@@ -2,9 +2,14 @@ import React from 'react'
 import { useGlobalContext } from '../context'
 
 const SearchForm = () => {
+  const { setSearchTerm } = useGlobalContext()
+
   return (
-    <div>
-      <h2>search form component</h2>
+    <div className='search'>
+      <form className='search-form form-control'>
+        <label>Cocktail:</label>
+        <input type='text' />
+      </form>
     </div>
   )
 }
