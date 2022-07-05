@@ -5,16 +5,19 @@ const url = 'https://course-api.com/axios-tutorial-post'
 const PostRequest = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
       const response = await axios.post(url, { name: name, email: email })
-      console.log(response)
-      console.log(response.data)
+      console.log('response', response)
+      console.log('response.data', response.data)
     } catch (error) {
-      console.log(error.response)
+      console.log('error.response', error.response)
+      const errorMessage = error.response.data.msg
+      setError(errorMessage)
     }
   }
 
@@ -46,6 +49,8 @@ const PostRequest = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+
+        <h2>{error ? error : name}</h2>
         <button type='submit' className='btn btn-block'>
           login
         </button>
@@ -54,3 +59,5 @@ const PostRequest = () => {
   )
 }
 export default PostRequest
+
+axios.post()
