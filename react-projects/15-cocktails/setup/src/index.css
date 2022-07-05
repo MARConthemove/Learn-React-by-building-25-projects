@@ -5,11 +5,11 @@ Variables
 */
 :root {
   --primaryLightColor: #d4e6a5;
-  --primaryColor: #476a2e;
+  --primaryColor: #ab46d2;
   --primaryDarkColor: #c02c03;
-  --mainWhite: #fff;
+  --mainWhite: #fcf69c;
   --offWhite: #f7f7f7;
-  --mainBackground: #f1f5f8;
+  --mainBackground: #fc8cc2;
   --mainOverlay: rgba(35, 10, 36, 0.4);
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -17,13 +17,15 @@ Variables
   --mainRed: #bd0303;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 0.3rem;
-  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --lightShadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBorderRadius: 0.25rem;
   --smallWidth: 85vw;
   --maxWidth: 40rem;
   --fullWidth: 1170px;
 }
+
 /*
 ======
 Global Styles
@@ -136,7 +138,7 @@ Navbar
   height: 5rem;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid var(--primaryColor);
+  /* border-bottom: 2px solid var(--primaryColor); */
   box-shadow: var(--lightShadow);
 }
 .nav-center {
@@ -167,6 +169,7 @@ Navbar
 }
 .logo {
   width: 3rem;
+  display: inline-block;
 }
 /*
 ======
@@ -234,7 +237,7 @@ Cocktail
 */
 
 .cocktail {
-  background: var(--mainWhite);
+  background: #55d8c1;
   margin-bottom: 2rem;
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
@@ -263,7 +266,7 @@ Cocktail
   font-size: 2rem;
 }
 .cocktail-footer p {
-  color: var(--darkGrey);
+  color: #ab46d2;
   margin-bottom: 0.5rem;
 }
 /*
@@ -280,7 +283,7 @@ Form
   width: var(--smallWidth);
   margin: 0 auto;
   max-width: var(--maxWidth);
-  background: var(--mainWhite);
+  background: #55d8c1;
   padding: 2rem 2.5rem;
   text-transform: capitalize;
   border-radius: var(--mainBorderRadius);
