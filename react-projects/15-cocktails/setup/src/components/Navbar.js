@@ -4,10 +4,18 @@ import logo from '../logo.svg'
 
 const Navbar = () => {
   return (
-    <div>
-      <h2>navbar component</h2>
+    <React.Fragment>
+      <nav className='navbar'>
+        <div className='nav-center'>
+          <img src={logo} alt='logo' className='logo' />
+          <div className='nav-links'>
+            <Link to='/'>Home</Link>
+            <Link to='/about'>About</Link>
+          </div>
+        </div>
+      </nav>
       <Outlet />
-    </div>
+    </React.Fragment>
   )
 }
 

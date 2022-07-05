@@ -17,6 +17,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Navbar />}>
           <Route index element={<Home />} />
+
+          <Route path='/about' element={<About />} />
+
+          <Route path='/cocktails/:cocktailId' element={<SingleCocktail />} />
+          <Route path='*' element={<Error />} />
         </Route>
       </Routes>
     </BrowserRouter>
