@@ -6,10 +6,15 @@ const url = 'https://course-api.com/react-store-products'
 const Interceptors = () => {
   const fetchData = async () => {
     try {
-      const resp = await authFetch('/react-store-products')
+      const resp = await authFetch('/react-store-productss')
       return resp
     } catch (error) {
       console.log(error.response)
+      if (error.response.status === 404) {
+        // do something
+        console.log('NOT FOUND')
+      }
+      return Promise.reject(error)
     }
   }
 
