@@ -20,7 +20,11 @@ function App() {
 
   //handler
   const handleValue = (e) => {
-    console.log(e.target)
+    if (e.target.classList.contains('icon')) {
+      const newValue = e.target.dataset.label
+      setTitle(newValue)
+      setValue(person[newValue])
+    }
   }
 
   // fetch function
@@ -60,7 +64,11 @@ function App() {
         street: `${streetName} ${streetNumber}`,
         name: `${first} ${last}`,
       }
-      console.log(newPerson)
+
+      setPerson(newPerson)
+      setLoading(false)
+      setTitle('name')
+      setValue(newPerson.name)
     } catch (error) {
       console.log(error)
     }
@@ -81,7 +89,7 @@ function App() {
             alt='random user'
             className='user-img'
           />
-          <p className='user-title'>my {title} is</p>
+          <p className='user-title'>My {title} is</p>
           <p className='user-value'>{value}</p>
           <div className='values-list'>
             <button
@@ -128,7 +136,7 @@ function App() {
               <FaLock />
             </button>
           </div>
-          <button className='btn' type='button'>
+          <button className='btn' type='button' onClick={getPerson}>
             {loading ? 'loading...' : 'random user'}
           </button>
         </div>
