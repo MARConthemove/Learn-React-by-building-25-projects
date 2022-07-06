@@ -7,9 +7,9 @@ let testString = `### markdown preview
 **bold**
 *italicized text*
 
-> blockquote
+> Here is a quote by marc
 
-${`code style syntax`}
+#### Hello world
 
 [MARConthemove LINK](https://github.com/MARConthemove)`
 
