@@ -4,7 +4,6 @@ import Follower from './Follower'
 
 function App() {
   const { loading, data } = useFetch()
-  console.log(data)
 
   return (
     <main>
