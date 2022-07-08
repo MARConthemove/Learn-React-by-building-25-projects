@@ -21,7 +21,9 @@ function App() {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      console.log('data', data)
+      // console.log('data: ', data)
+      setPhotos(data)
+      setLoading(false)
     } catch (error) {
       setLoading(false)
       console.log(error.response)
@@ -32,7 +34,21 @@ function App() {
     fetchImages()
   }, [])
 
-  return <h2>stock photos starter</h2>
+  const handleSubmit = () => {}
+
+  console.log('photos: ', photos)
+  return (
+    <main>
+      <section className='search'>
+        <form className='search-form'>
+          <input type='text' className='form-input' placeholder='search' />
+          <button type='submit' className='submit-btn' onClick={handleSubmit}>
+            <FaSearch />
+          </button>
+        </form>
+      </section>
+    </main>
+  )
 }
 
 export default App
