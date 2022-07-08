@@ -38,10 +38,9 @@ function App() {
   // handlers
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('hello')
+    console.log('button clicked!')
   }
 
-  console.log('photos: ', photos)
   return (
     <main>
       <section className='search'>

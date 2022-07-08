@@ -200,6 +200,16 @@ Stock Photos
 .photo p {
   margin-bottom: 0;
 }
+
+.heart-icon {
+  color: #eb4747;
+}
+.likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .user-img {
   width: 2.5rem;
   height: 2.5rem;
