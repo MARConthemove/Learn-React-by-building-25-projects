@@ -2,23 +2,35 @@ import React, { useState, useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Photo from './Photo'
 
-// const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
+// to access ENV(ironment) variables: process.env.XXX
+const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
 const mainUrl = `https://api.unsplash.com/photos/`
 const searchUrl = `https://api.unsplash.com/search/photos/`
 
-const accessKey = 'jbGJ-sEPvjFpLiOxw8Ia4zyrj6hxfuyFy9aFej2R7K8'
-
 function App() {
+  // state
+  const [loading, setLoading] = useState(false)
+  const [photos, setPhotos] = useState([])
+
   const fetchImages = async () => {
+    setLoading(true)
     // create fetch url
     let url
-    url = `${mainUrl}?clientID=${accessKey}`
+    url = `${mainUrl}${clientID}`
+
     try {
       const response = await fetch(url)
+      const data = await response.json()
+      console.log('data', data)
     } catch (error) {
+      setLoading(false)
       console.log(error.response)
     }
   }
+
+  useEffect(() => {
+    fetchImages()
+  }, [])
 
   return <h2>stock photos starter</h2>
 }
