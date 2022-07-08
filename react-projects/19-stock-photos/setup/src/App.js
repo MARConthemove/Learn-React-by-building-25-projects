@@ -9,6 +9,17 @@ const searchUrl = `https://api.unsplash.com/search/photos/`
 const accessKey = 'jbGJ-sEPvjFpLiOxw8Ia4zyrj6hxfuyFy9aFej2R7K8'
 
 function App() {
+  const fetchImages = async () => {
+    // create fetch url
+    let url
+    url = `${mainUrl}?clientID=${accessKey}`
+    try {
+      const response = await fetch(url)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
   return <h2>stock photos starter</h2>
 }
 
