@@ -19,7 +19,8 @@ const Photo = ({
           <h4>{name}</h4>
           <div className='likes'>
             <p>
-              <FaHeart className='heart-icon' /> {likes}
+              <FaHeart className='heart-icon' />{' '}
+              <span style={{ fontSize: '1.1rem' }}>{likes}</span>
             </p>
           </div>
         </div>

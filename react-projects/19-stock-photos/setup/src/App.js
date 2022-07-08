@@ -11,18 +11,23 @@ function App() {
   // state
   const [loading, setLoading] = useState(false)
   const [photos, setPhotos] = useState([])
+  const [page, setPage] = useState(1)
 
   const fetchImages = async () => {
     setLoading(true)
     // create fetch url
     let url
-    url = `${mainUrl}${clientID}`
+    const urlPage = `&page=${page}`
+
+    url = `${mainUrl}${clientID}${urlPage}`
 
     try {
       const response = await fetch(url)
       const data = await response.json()
       // console.log('data: ', data)
-      setPhotos(data)
+      setPhotos((oldPhotos) => {
+        return [...oldPhotos, ...data]
+      })
       setLoading(false)
     } catch (error) {
       setLoading(false)
@@ -33,6 +38,18 @@ function App() {
   // effects
   useEffect(() => {
     fetchImages()
+  }, [page])
+
+  useEffect(() => {
+    const event = window.addEventListener('scroll', () => {
+      if (
+        !loading &&
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
+      ) {
+        setPage((oldPage) => oldPage + 1)
+      }
+    })
+    return () => window.removeEventListener('scroll', event)
   }, [])
 
   // handlers
