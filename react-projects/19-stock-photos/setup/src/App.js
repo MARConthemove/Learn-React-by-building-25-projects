@@ -30,11 +30,16 @@ function App() {
     }
   }
 
+  // effects
   useEffect(() => {
     fetchImages()
   }, [])
 
-  const handleSubmit = () => {}
+  // handlers
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('hello')
+  }
 
   console.log('photos: ', photos)
   return (
@@ -46,6 +51,15 @@ function App() {
             <FaSearch />
           </button>
         </form>
+      </section>
+
+      <section className='photos'>
+        <div className='photos-center'>
+          {photos.map((image) => {
+            return <Photo key={image.id} {...image} />
+          })}
+        </div>
+        {loading && <h2 className='loading'>Loading...</h2>}
       </section>
     </main>
   )
