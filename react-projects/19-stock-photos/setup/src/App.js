@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Photo from './Photo'
 
+//testing here
 // to access ENV(ironment) variables: process.env.XXX
 const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
 const mainUrl = `https://api.unsplash.com/photos/`
