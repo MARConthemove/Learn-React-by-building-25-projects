@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Photo from './Photo'
 
@@ -8,12 +8,23 @@ const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
 const mainUrl = `https://api.unsplash.com/photos/`
 const searchUrl = `https://api.unsplash.com/search/photos/`
 
+// TODO:
+// remove current scroll code
+// set default page to 1
+// setup two useEffects
+// don't run second on initial render
+// check for query value
+// if page 1 fetches images
+// otherwise setPage(1)
+// fix scroll functionality
+
 function App() {
   // state
   const [loading, setLoading] = useState(false)
   const [photos, setPhotos] = useState([])
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [query, setQuery] = useState('')
+  const first = useRef(second)
 
   const fetchImages = async () => {
     setLoading(true)
@@ -57,7 +68,13 @@ function App() {
     // eslint-disable-next-line
   }, [page])
 
+  // This effect should only render with the 2, 3, ... page and not initially -> useRef()
   useEffect(() => {
+    console.log('second')
+  }, [])
+
+  // Old useEffect, buggy because loading was always false
+  /*   useEffect(() => {
     const event = window.addEventListener('scroll', () => {
       if (
         !loading &&
@@ -68,11 +85,12 @@ function App() {
     })
     return () => window.removeEventListener('scroll', event)
     // eslint-disable-next-line
-  }, [])
+  }, []) */
 
   // handlers
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('hello')
     setPage(1)
   }
 
