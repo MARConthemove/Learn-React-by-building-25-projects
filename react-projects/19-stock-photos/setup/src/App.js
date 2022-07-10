@@ -24,7 +24,7 @@ function App() {
   const [photos, setPhotos] = useState([])
   const [page, setPage] = useState(1)
   const [query, setQuery] = useState('')
-  const first = useRef(second)
+  const mounted = useRef(false)
 
   const fetchImages = async () => {
     setLoading(true)
@@ -70,6 +70,11 @@ function App() {
 
   // This effect should only render with the 2, 3, ... page and not initially -> useRef()
   useEffect(() => {
+    console.log(mounted)
+    if (!mounted.current) {
+      mounted.current = true
+      return
+    }
     console.log('second')
   }, [])
 
@@ -90,7 +95,12 @@ function App() {
   // handlers
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('hello')
+
+    if (!query) return
+    if (page === 1) {
+      fetchImages()
+      return
+    }
     setPage(1)
   }
 
