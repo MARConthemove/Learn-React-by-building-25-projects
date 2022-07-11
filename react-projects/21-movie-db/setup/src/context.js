@@ -6,6 +6,11 @@ export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState({ show: false, msg: '' })
+  const [movies, setMovies] = useState([])
+  const [query, setQuery] = useState('batman')
+
   return <AppContext.Provider value='hello'>{children}</AppContext.Provider>
 }
 
