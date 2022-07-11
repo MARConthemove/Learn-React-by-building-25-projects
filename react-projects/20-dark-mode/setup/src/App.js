@@ -3,12 +3,33 @@ import data from './data'
 import Article from './Article'
 
 function App() {
+  const [theme, setTheme] = useState('light-theme')
+
+  /* const toggleTheme = () => {
+    if (theme === 'light-theme') {
+      setTheme('dark-theme')
+    } else {
+      setTheme('light-theme')
+    }
+  } */
+
+  useEffect(() => {
+    document.documentElement.className = theme
+  }, [theme])
+
   return (
     <main>
       <nav>
         <div className='nav-center'>
           <h1>overr3acted</h1>
-          <button className='btn'>toggle</button>
+          <button
+            className='btn'
+            onClick={() =>
+              setTheme(theme === 'light-theme' ? 'dark-theme' : 'light-theme')
+            }
+          >
+            toggle
+          </button>
         </div>
       </nav>
       <section className='articles'>
