@@ -26,7 +26,7 @@ const SingleMovie = () => {
   }, [id])
 
   if (loading) {
-    return <div className='loading'>loading...</div>
+    return <div className='loading'></div>
   }
 
   if (error.show) {
