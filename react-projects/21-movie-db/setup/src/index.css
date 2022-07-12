@@ -93,7 +93,7 @@ h4 {
   font-size: 0.875rem;
 }
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: var(--clr-grey-3);
 }
 @media screen and (min-width: 800px) {
@@ -117,6 +117,7 @@ p {
   h3,
   h4 {
     line-height: 1;
+    margin-bottom: 1.5rem;
   }
 }
 /*  global classes */
@@ -278,4 +279,18 @@ Single Movie
 .page-error {
   text-align: center;
   padding: 2rem;
+}
+
+span {
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+}
+
+span.imdb-vote {
+  background-color: rgba(248, 248, 151, 0.971);
+}
+
+h6 {
+  margin-bottom: 0.8rem;
 }

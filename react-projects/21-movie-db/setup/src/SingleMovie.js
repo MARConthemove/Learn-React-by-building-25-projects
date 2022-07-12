@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { API_ENDPOINT } from './context'
+
 import useFetch from './useFetch'
 
 const SingleMovie = () => {
   const { id } = useParams()
 
   const { isLoading, error, data: movie } = useFetch(`&i=${id}`)
-
+  console.log(movie)
   if (isLoading) {
     return <div className='loading'></div>
   }
@@ -23,7 +23,18 @@ const SingleMovie = () => {
     )
   }
 
-  const { Poster: poster, Title: title, Plot: plot, Year: year } = movie
+  const {
+    Poster: poster,
+    Title: title,
+    Plot: plot,
+    Year: year,
+    Writer: writer,
+    Actors: actors,
+    imdbRating,
+    imdbVotes,
+    Director,
+    Genre,
+  } = movie
 
   return (
     <section className='single-movie'>
@@ -31,7 +42,35 @@ const SingleMovie = () => {
       <div className='single-movie-info'>
         <h2>{title}</h2>
         <p>{plot}</p>
-        <h4>{year}</h4>
+        <h4>
+          <span>Year:</span>
+          {year}
+        </h4>
+        <h6>
+          <span>Writer:</span>
+          {writer}
+        </h6>
+        <h6>
+          <span>Director:</span>
+          {Director}
+        </h6>
+        <h6>
+          <span>Actors:</span>
+          {actors}
+        </h6>
+        <h6>
+          <span>Genre:</span>
+          {Genre}
+        </h6>
+        <h6>
+          <span className='imdb-vote'>IMDB rating:</span>
+          {imdbRating}
+        </h6>
+        <h6>
+          <span className='imdb-vote'>IMDB votes:</span>
+          {imdbVotes}
+        </h6>
+
         <Link to='/' className='btn'>
           back to movies
         </Link>
