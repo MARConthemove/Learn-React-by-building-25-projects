@@ -28,6 +28,7 @@ const useFetch = (urlParams) => {
 
   useEffect(() => {
     fetchMovies(`${API_ENDPOINT}${urlParams}`)
+    // eslint-disable-next-line
   }, [urlParams])
 
   return { isLoading, error, data }
