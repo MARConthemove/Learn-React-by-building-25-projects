@@ -16,20 +16,28 @@ const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?'
 // &page=...
 
 // reducer initialState
-const initialState = {}
+const initialState = { isLoading: true }
 
 // context object
 const AppContext = React.createContext()
 
 // context provider
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState, third)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
+  // fetch data
   const fetchStories = async () => {
-    dispatch()
+    dispatch({ type: SET_LOADING })
   }
 
-  return <AppContext.Provider value='hello'>{children}</AppContext.Provider>
+  // effects
+  useEffect(() => {
+    fetchStories()
+  }, [])
+
+  return (
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+  )
 }
 
 // custom hook

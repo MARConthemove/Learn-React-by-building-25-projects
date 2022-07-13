@@ -6,5 +6,15 @@ import {
   HANDLE_SEARCH,
 } from './actions'
 
-const reducer = (state, action) => {}
+const reducer = (state, action) => {
+  // action.types
+  switch (action.type) {
+    case SET_LOADING:
+      return { ...state, isLoading: true }
+
+    default:
+      throw new Error(`no matching "${action.type}" action type`)
+  }
+}
+
 export default reducer
