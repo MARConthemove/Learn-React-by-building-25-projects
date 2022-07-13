@@ -38,10 +38,18 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url)
       const data = await response.json()
-      console.log('data:', data)
+      dispatch({
+        type: SET_STORIES,
+        payload: { hits: data.hits, nbPages: data.nbPages },
+      })
     } catch (error) {
       console.log(error)
     }
+  }
+
+  // remove item functionality
+  const removeStory = (id) => {
+    dispatch({ type: REMOVE_STORY, payload: id })
   }
 
   // effects
@@ -50,7 +58,9 @@ const AppProvider = ({ children }) => {
   }, [])
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, removeStory }}>
+      {children}
+    </AppContext.Provider>
   )
 }
 
