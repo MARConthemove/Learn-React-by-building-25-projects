@@ -47,6 +47,7 @@ const reducer = (state, action) => {
         }
       }
 
+    // eslint-disable-next-line
     default:
       throw new Error(`no matching "${action.type}" action type`)
   }

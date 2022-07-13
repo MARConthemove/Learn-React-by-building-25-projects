@@ -1,5 +1,4 @@
 import React from 'react'
-import { REMOVE_STORY } from './actions'
 
 import { useGlobalContext } from './context'
 
