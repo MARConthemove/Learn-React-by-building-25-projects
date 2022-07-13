@@ -30,18 +30,23 @@ const reducer = (state, action) => {
         page: 0,
       }
     case HANDLE_PAGE:
-      if ((action.payload = 'inc')) {
+      if (action.payload === 'inc') {
         let nextPage = state.page + 1
+        if (nextPage > state.nbPages - 1) nextPage = 0
+        return { ...state, page: nextPage }
       }
 
-      if ((action.payload = 'dec')) {
-        let nextPage = state.page - 1
+      if (action.payload === 'dec') {
+        let prevPage = state.page - 1
+        if (prevPage < 0) {
+          prevPage = state.nbPages - 1
+        }
+        return {
+          ...state,
+          page: prevPage,
+        }
       }
 
-      return {
-        ...state,
-        page: nextPage,
-      }
     default:
       throw new Error(`no matching "${action.type}" action type`)
   }
