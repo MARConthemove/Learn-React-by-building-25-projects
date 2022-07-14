@@ -7,6 +7,7 @@ const table = {
   politics: 24,
 }
 
+// New api endpoint, maybe needed to be changed later
 const API_ENDPOINT = 'https://opentdb.com/api.php?'
 
 const url = ''

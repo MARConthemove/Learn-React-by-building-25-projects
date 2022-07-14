@@ -1,6 +1,7 @@
 import React from 'react'
 import { useGlobalContext } from './context'
 
+// Modalshow for the quiz
 const Modal = () => {
   return <h2>modal component</h2>
 }
