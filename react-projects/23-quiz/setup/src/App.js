@@ -16,29 +16,37 @@ function App() {
     return <Loading />
   }
 
+  // console.log()
+  console.log(questions)
   console.log(questions[index])
+
   const { correct_answer, question, incorrect_answers } = questions[index]
 
   const answers = [...incorrect_answers, correct_answer]
   console.log(answers)
   return (
     <main>
-      <Modal />
+      {/* <Modal /> */}
       <section className='quiz'>
-        <p className='correct-answers'>Correct Answers: {correct} / </p>
+        <p className='correct-answers'>
+          Correct Answers: {correct}/{index}
+        </p>
 
         <article className='container'>
-          <h2>{question}</h2>
+          <h2 dangerouslySetInnerHTML={{ __html: question }} />
           <div className='btn-container'>
             {answers.map((answer, index) => {
               return (
-                <button key={index} className='answer-btn'>
-                  {answer}
-                </button>
+                <button
+                  key={index}
+                  className='answer-btn'
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                />
               )
             })}
           </div>
         </article>
+        <button className='next-question'>next question</button>
       </section>
     </main>
   )
