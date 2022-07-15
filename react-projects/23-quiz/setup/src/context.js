@@ -59,7 +59,15 @@ const AppProvider = ({ children }) => {
   }, [])
 
   const nextQuestion = () => {
-    setIndex(index + 1)
+    setIndex((oldIndex) => {
+      const index = oldIndex + 1
+      if (index > questions.length - 1) {
+        // openModal
+        return 0
+      } else {
+        return index
+      }
+    })
   }
 
   return (
