@@ -37,7 +37,9 @@ const AppProvider = ({ children }) => {
   const fetchQuestions = async (url) => {
     setLoading(true)
     setWaiting(false)
+
     const response = await axios.get(url).catch((err) => console.log(err))
+
     if (response) {
       const data = response.data.results
       if (data.length > 0) {
@@ -45,6 +47,8 @@ const AppProvider = ({ children }) => {
         setLoading(false)
         setWaiting(false)
         setError(false)
+
+        console.log('data from fetch: ', data)
       } else {
         setWaiting(true)
         setError(true)
@@ -58,6 +62,7 @@ const AppProvider = ({ children }) => {
     fetchQuestions(tempUrl)
   }, [])
 
+  // nextQuestion button functionality
   const nextQuestion = () => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1
@@ -68,6 +73,15 @@ const AppProvider = ({ children }) => {
         return index
       }
     })
+  }
+
+  const checkAnswer = (value) => {
+    if (value) {
+      setCorrect((oldSate) => oldSate + 1)
+    }
+
+    // regardless of correct or incorrect we want to get the next question
+    nextQuestion()
   }
 
   return (
@@ -81,6 +95,7 @@ const AppProvider = ({ children }) => {
         index,
         waiting,
         nextQuestion,
+        checkAnswer,
       }}
     >
       {children}
