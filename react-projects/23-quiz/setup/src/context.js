@@ -36,7 +36,7 @@ const AppProvider = ({ children }) => {
   // functionality:
   const fetchQuestion = async () => {
     try {
-      setIsLoading(true)
+      setLoading(true)
       const response = await fetch(url)
       console.log('response:', response)
       const data = await response.json()
@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       console.log(error)
     }
-    setIsLoading(false)
+    setLoading(false)
   }
 
   useEffect(() => {
