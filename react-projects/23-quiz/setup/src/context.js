@@ -67,7 +67,7 @@ const AppProvider = ({ children }) => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1
       if (index > questions.length - 1) {
-        // openModal
+        openModal()
         return 0
       } else {
         return index
@@ -76,12 +76,23 @@ const AppProvider = ({ children }) => {
   }
 
   const checkAnswer = (value) => {
+    console.log('value: ', value)
     if (value) {
       setCorrect((oldSate) => oldSate + 1)
     }
 
     // regardless of correct or incorrect we want to get the next question
     nextQuestion()
+  }
+
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setWaiting(true)
+    setCorrect(0)
+    setIsModalOpen(false)
   }
 
   return (
@@ -96,6 +107,7 @@ const AppProvider = ({ children }) => {
         waiting,
         nextQuestion,
         checkAnswer,
+        closeModal,
       }}
     >
       {children}
