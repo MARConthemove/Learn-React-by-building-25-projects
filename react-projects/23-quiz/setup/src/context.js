@@ -21,10 +21,51 @@ const tempUrl =
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  // state:
+  const [loading, setLoading] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [questions, setQuestions] = useState([])
+  const [correct, setCorrect] = useState(0)
+  // if api cant generate the question
+  const [error, setError] = useState(false)
+  // question number: (page)
+  const [index, setIndex] = useState(0)
+  // for displaying form or question page:
+  const [waiting, setWaiting] = useState(true)
 
-  return <AppContext.Provider value='hello'>{children}</AppContext.Provider>
+  // functionality:
+  const fetchQuestion = async () => {
+    try {
+      setIsLoading(true)
+      const response = await fetch(url)
+      console.log('response:', response)
+      const data = await response.json()
+      console.log('data:', data)
+    } catch (error) {
+      console.log(error)
+    }
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    fetchQuestion()
+  }, [])
+
+  return (
+    <AppContext.Provider
+      value={{
+        loading,
+        isModalOpen,
+        questions,
+        correct,
+        error,
+        index,
+        waiting,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
 }
 
 // make sure use
