@@ -58,6 +58,10 @@ const AppProvider = ({ children }) => {
     fetchQuestions(tempUrl)
   }, [])
 
+  const nextQuestion = () => {
+    setIndex(index + 1)
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -68,6 +72,7 @@ const AppProvider = ({ children }) => {
         error,
         index,
         waiting,
+        nextQuestion,
       }}
     >
       {children}

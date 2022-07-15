@@ -6,7 +6,8 @@ import Loading from './Loading'
 import Modal from './Modal'
 
 function App() {
-  const { loading, waiting, questions, index, correct } = useGlobalContext()
+  const { loading, waiting, questions, index, correct, nextQuestion } =
+    useGlobalContext()
 
   if (waiting) {
     return <SetupForm />
@@ -17,13 +18,13 @@ function App() {
   }
 
   // console.log()
-  console.log(questions)
-  console.log(questions[index])
+  console.log('questions: ', questions)
+  console.log('questions[index]: ', questions[index])
 
   const { correct_answer, question, incorrect_answers } = questions[index]
 
   const answers = [...incorrect_answers, correct_answer]
-  console.log(answers)
+  console.log('answers:', answers)
   return (
     <main>
       {/* <Modal /> */}
@@ -46,7 +47,9 @@ function App() {
             })}
           </div>
         </article>
-        <button className='next-question'>next question</button>
+        <button className='next-question' onClick={nextQuestion}>
+          next question
+        </button>
       </section>
     </main>
   )
