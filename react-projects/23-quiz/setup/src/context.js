@@ -32,6 +32,12 @@ const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0)
   // for displaying form or question page:
   const [waiting, setWaiting] = useState(true)
+  // form state
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: 'sports',
+    difficulty: 'easy',
+  })
 
   // dataFetch with axios:
   const fetchQuestions = async (url) => {
@@ -58,9 +64,13 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  useEffect(() => {
-    fetchQuestions(tempUrl)
-  }, [])
+  // handle quiz setup
+  const handleChange = (e) => {
+    console.log(e)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   // nextQuestion button functionality
   const nextQuestion = () => {
@@ -108,6 +118,9 @@ const AppProvider = ({ children }) => {
         nextQuestion,
         checkAnswer,
         closeModal,
+        quiz,
+        handleChange,
+        handleSubmit,
       }}
     >
       {children}
