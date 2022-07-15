@@ -33,22 +33,29 @@ const AppProvider = ({ children }) => {
   // for displaying form or question page:
   const [waiting, setWaiting] = useState(true)
 
-  // functionality:
-  const fetchQuestion = async () => {
-    try {
-      setLoading(true)
-      const response = await fetch(url)
-      console.log('response:', response)
-      const data = await response.json()
-      console.log('data:', data)
-    } catch (error) {
-      console.log(error)
+  // dataFetch with axios:
+  const fetchQuestions = async (url) => {
+    setLoading(true)
+    setWaiting(false)
+    const response = await axios.get(url).catch((err) => console.log(err))
+    if (response) {
+      const data = response.data.results
+      if (data.length > 0) {
+        setQuestions(data)
+        setLoading(false)
+        setWaiting(false)
+        setError(false)
+      } else {
+        setWaiting(true)
+        setError(true)
+      }
+    } else {
+      setWaiting(true)
     }
-    setLoading(false)
   }
 
   useEffect(() => {
-    fetchQuestion()
+    fetchQuestions(tempUrl)
   }, [])
 
   return (
