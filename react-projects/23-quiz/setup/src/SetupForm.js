@@ -9,7 +9,7 @@ const SetupForm = () => {
       <section className='quiz quiz-small'>
         <form className='setup-form'>
           <h2>setup quiz</h2>
-
+          {/* todo here working: */}
           <div className='form-control'>
             {/* amount */}
             <label htmlFor='amount'>number of questions</label>
@@ -51,6 +51,7 @@ const SetupForm = () => {
               onChange={handleChange}
               className='form-input'
             >
+              {/* maybe also more options */}
               <option value='easy'>easy</option>
               <option value='medium'>medium</option>
               <option value='hard'>hard</option>
