@@ -78,6 +78,9 @@ const AppProvider = ({ children }) => {
 
     const { amount, category, difficulty } = quiz
     const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`
+
+    fetchQuestions(url)
+    setWaiting(false)
   }
 
   // nextQuestion button functionality
