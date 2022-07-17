@@ -24,14 +24,13 @@ function App() {
     return <Loading />
   }
 
-  // console.log()
-  console.log('questions: ', questions)
-  console.log('questions[index]: ', questions[index])
+  const { question, correct_answer, incorrect_answers } = questions[index]
 
-  const { correct_answer, question, incorrect_answers } = questions[index]
+  // const answers = [...incorrect_answers, correct_answer]
+  const answers = [...incorrect_answers]
+  const tempIndex = Math.floor(Math.random() * 4)
+  console.log(tempIndex)
 
-  const answers = [...incorrect_answers, correct_answer]
-  console.log('answers:', answers)
   return (
     <main>
       <Modal />
