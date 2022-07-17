@@ -35,6 +35,7 @@ const SetupForm = () => {
               onChange={handleChange}
               className='form-input'
             >
+              {/* maybe also more options */}
               <option value='sports'>sports</option>
               <option value='history'>history</option>
               <option value='politics'>politics</option>
