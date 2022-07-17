@@ -72,8 +72,12 @@ const AppProvider = ({ children }) => {
     // dynamic object keys:
     setQuiz({ ...quiz, [name]: value })
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const { amount, category, difficulty } = quiz
+    const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`
   }
 
   // nextQuestion button functionality
