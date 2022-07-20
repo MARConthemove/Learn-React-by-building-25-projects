@@ -26,18 +26,19 @@ const Card = () => {
         <a href={html_url}>follow</a>
       </header>
       <p className='bio'>{bio}</p>
-      <div className='links'></div>
-      <p>
-        <MdBusiness /> {company}
-      </p>
-      <p>
-        <MdLocationOn></MdLocationOn> {location || 'earth'}
-      </p>
-      <p>
-        <a href={`https://${blog}`}>
-          <MdLink></MdLink> {blog}
-        </a>
-      </p>
+      <div className='links'>
+        <p>
+          <MdBusiness /> {company}
+        </p>
+        <p>
+          <MdLocationOn></MdLocationOn> {location || 'earth'}
+        </p>
+        <p>
+          <a href={`https://${blog}`}>
+            <MdLink /> {blog}
+          </a>
+        </p>
+      </div>
     </Wrapper>
   )
 }
