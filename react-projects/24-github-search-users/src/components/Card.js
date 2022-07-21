@@ -16,6 +16,7 @@ const Card = () => {
   } = githubUser
 
   return (
+    // maybe changing this design
     <Wrapper>
       <header>
         <img src={avatar_url} alt={name} />

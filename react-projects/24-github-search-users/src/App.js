@@ -6,6 +6,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        {/* later switching this path to another */}
         <Route path='/' exact={true}>
           <Dashboard></Dashboard>
         </Route>
